@@ -1,2 +1,2 @@
-# Leetcode-OP
-leetcode solution
+# Leetcode
+Solution for leetcode
