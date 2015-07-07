@@ -24,6 +24,7 @@ public class MergeTwoSortedLists {
         answer.next = l1 == null ? l2 : l1;
         return dummy.next;
 	}
+	// doesn't create new list
 	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 		if(l1==null || l2==null) return l1==null? l2 : l1;
 		ListNode dummy = new ListNode(0);
@@ -57,6 +58,7 @@ public class MergeTwoSortedLists {
 		System.out.println(3+ "==");
 		ListNode a = new ListNode(1);
 		a.next = new ListNode(3);
+		a.next.next = new ListNode(5);
 		ListNode t = mergeTwoLists(new ListNode(2), a);
 		while(t != null ){			
 			System.out.print(t.val+"==");

@@ -48,7 +48,6 @@ public class BinaryTreeLevelOrderTraversal {
 			while(count>0){
 				TreeNode tmp = queue.poll();
 				onelevel.add(tmp.val);
-
 				if(tmp.left!=null) queue.add(tmp.left);
 				if(tmp.right!=null) queue.add(tmp.right);
 				count--;

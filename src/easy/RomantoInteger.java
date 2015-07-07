@@ -17,7 +17,7 @@ public class RomantoInteger {
 		if(s.length()==1) return map.get(s.charAt(0));
 		int digit,total = 0;
 		int index = 0;
-		// from left to right
+		// from RIGHT to LEFT
 		//如果当前比前一个大，说明这一段的值应该是当前这个值减去上一个值。比如IV = 5 – 1
 		//否则，将当前值加入到结果中，然后开始下一段记录。比如VI = 5 + 1， II=1+1
 		while(index < s.length() ){
