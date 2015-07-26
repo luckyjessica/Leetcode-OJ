@@ -22,7 +22,7 @@ import java.util.HashMap;
  * @author JieXu
  *
  */
-public class _ConstructBinaryTreeFromInOrderAndPostOrder {
+public class ConstructBinaryTreeFromInOrderAndPostOrder {
 	// 不断生成子数组，较占空间
     public TreeNode buildTree(int[] inorder, int[] postorder) {
     	if(inorder.length==0 || postorder.length==0) return null;

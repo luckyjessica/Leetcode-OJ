@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class BinaryTreeLevelOrderTraversalII {
+	//iterative time o(n), space o(logn)
 	public static List<List<Integer>> levelOrderBottom(TreeNode root){
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		List<Integer> onelevel = new ArrayList<Integer>();
@@ -25,7 +26,7 @@ public class BinaryTreeLevelOrderTraversalII {
 				if(tmp.right!=null) queue.add(tmp.right);
 				count--;
 			}
-		//注意这个方法！！！
+		//注意这个方法！！！一直往前加
 		result.add(0, onelevel);;
 		onelevel = new ArrayList<Integer>();
 		}

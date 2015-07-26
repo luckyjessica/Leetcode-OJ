@@ -1,5 +1,7 @@
 package medium;
 
+import java.util.Arrays;
+
 public class GasStation {
 	/**
 	 * 仔细想一下，其实和以前求最大连续子数组和的题很像。 
