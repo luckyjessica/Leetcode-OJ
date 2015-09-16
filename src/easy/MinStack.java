@@ -1,56 +1,71 @@
 package easy;
-class Node{
-	public int val;
-	// premin uses to store the current min value
-	// when this node serves as the head of the stack
-	
-	public int premin;
-	public Node next;
-	//constructor
-	public Node(int x){
-		this.val = x;
-	}
-}
+
+import java.util.Stack;
+
+//解法1
 class MinStack {	
-	Node head;
-	int size;
-	
-	public void push(int x) {
-		Node n = new Node(x);
-		//if the stack is empty
-		//new node become head
-		//value of new node become the min
-		if(size==0){
-			n.next = null;
-			n.premin = x;
-			head = n;
-		}
-		//when the value of new node is smaller than the current min
-		//it means when the new node is the head of stack, the min is its value;
-		//else when the new node is the head of stack, the min is same as the min before it is added
-		else{
-			if(x < head.premin) n.premin = x;
-			else n.premin = head.premin;
-			n.next = head;
-			head = n;
-		}
-		size++;
-	}
-	public void pop() {
-		if(size==0) System.err.println("Empty Stack!");
-		else{
-			head = head.next;
-			size--;
-		}	
-	}
-	
-	public int top() {
-		if(size == 0) return Integer.MAX_VALUE;
-		else return head.val;
-	}
-	
-	public int getMin() {
-		if(size == 0) return Integer.MAX_VALUE;
-		else return head.premin;
-	}
+	class StackNode{
+        int curr_min;
+        int val;
+        StackNode next;
+        StackNode(int x){
+            this.val = x;
+        }
+    }
+    StackNode head;
+    int size;
+    
+    public void push(int x) {
+        if(size==0){
+            head = new StackNode(x);
+            head.curr_min = x;
+        }else{
+            StackNode t = new StackNode(x);
+            t.next = head;
+            t.curr_min = Math.min(x,head.curr_min);
+            head = t;
+        }
+        size++;
+    }
+
+    public void pop() {
+        if(size==0) System.err.println("Empty Stack!");
+        else{
+            StackNode t = head;
+            head = head.next;
+            t.next = null;
+            size--;
+        }
+    }
+
+    public int top() {
+        if(size==0) return Integer.MAX_VALUE;
+        else return head.val;
+    }
+
+    public int getMin() {
+        if(size==0) return Integer.MAX_VALUE;
+        else return head.curr_min;
+    }
+}
+//解法2 ，用两个stack，维护一个minStack
+class MinStack2 {
+    private Stack<Integer> stack = new Stack<>();
+    private Stack<Integer> minStack = new Stack<>();
+    public void push(int x) {
+        stack.push(x);
+        if(minStack.isEmpty() || x<=minStack.peek()) minStack.push(x);
+    }
+
+    public void pop() {
+        if(stack.pop().equals(minStack.peek())) minStack.pop();
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int getMin() {
+        return minStack.peek();
+    }
 }

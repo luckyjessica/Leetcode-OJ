@@ -25,7 +25,7 @@ public class _MaxProductSubarray {
 		for(int i = 1 ; i<nums.length ; ++i){
 			int max_potential = max_curr * nums[i];
 			int min_potential = min_curr * nums[i];
-			                    // check之前最小的是不是乘了一个负数变成最大的了
+			// check之前最小的是不是乘了一个负数变成最大的了
 			max_curr = Math.max(Math.max(max_potential, min_potential),nums[i]);
 			min_curr = Math.min(Math.min(min_potential, max_potential),nums[i]);
 			

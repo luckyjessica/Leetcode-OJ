@@ -10,7 +10,7 @@ Input: numbers={2, 7, 11, 15}, target=9
 Output: index1=1, index2=2
  */
 import java.util.HashMap;
-
+// time o(n)
 public class TwoSum {
 	public static int[] twoSum(int[] nums, int target) {
         HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();

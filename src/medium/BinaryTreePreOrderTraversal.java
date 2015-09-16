@@ -24,7 +24,6 @@ public class BinaryTreePreOrderTraversal {
 	// time o(n), space 栈的o(logn)
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<Integer>();
-        list.
         LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
         while(root!=null){
             stack.push(root);

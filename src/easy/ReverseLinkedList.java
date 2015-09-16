@@ -55,7 +55,7 @@ public class ReverseLinkedList {
     	}
     	System.out.println(D.val);
     	
-    	ListNode list = iterative(A);
+    	ListNode list = recursively(A);
     	while(list!=null){
     		System.out.print(list.val + " => ");
     		list = list.next;

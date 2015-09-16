@@ -38,45 +38,32 @@ begin to intersect at node c1.
  */
 public class IntersectionOfTwoLists {
 	public static ListNode intersection(ListNode headA, ListNode headB){
-		if(headA == null || headB ==null) return null;
-		ListNode pA = headA;
-		ListNode pB = headB;
-		int lengthA = 0,lengthB = 0;
-		//get the length of two lists
-		while(pA!=null){
-			pA = pA.next;
-			lengthA++;
-		}
-		while(pB!=null){
-			pB = pB.next;
-			lengthB++;
-		}
-		//reset two pointers
-		pA = headA;
-		pB = headB;
-		// get the delta of length
-		int delta = lengthA > lengthB ? lengthA - lengthB : lengthB - lengthA;
-		// move the delta steps of the longer lists
-		if(lengthA > lengthB){
-			while(delta > 0){
-				pA = pA.next;
-				delta--;
-			}
-		}
-		else{
-			while(delta > 0){
-				pB = pB.next;
-				delta--;
-			}
-		}
-		// right now the two pointers are same steps away from the intersection node
-		while(pA!=null){
-			if(pA!= pB){
-				pA = pA.next;
-				pB = pB.next;
-			}
-			else return pA;
-		}
-		return null;
+		if(headA==null || headB==null) return null;
+        ListNode p1 = headA;
+        ListNode p2 = headB;
+        int len1= 0, len2 = 0;
+        while(p1!=null){
+            len1++;
+            p1 = p1.next;
+        }
+        while(p2!=null){
+            len2++;
+            p2=p2.next;
+        }
+        int delta = len1-len2;
+        while(delta > 0){
+            headA = headA.next;
+            delta--;
+        }
+        while(delta < 0){
+            headB = headB.next;
+            delta++;
+        }
+        while(headA!=null && headB!=null){
+            if(headA==headB) return headA;
+            headA = headA.next;
+            headB = headB.next;
+        }
+        return null;
 	}
 }

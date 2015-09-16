@@ -19,6 +19,7 @@ The solution set must not contain duplicate triplets.
  * @author JieXu
  *
  */
+// time o(n*n)
 public class ThreeSum {
 	// 选定一个number， 用2sum夹逼剩下两个
 	// T O(N^2), S O(1)
@@ -31,6 +32,8 @@ public class ThreeSum {
     		int target = 0-nums[i];
     		int low = i+1;
     		int high = nums.length - 1;
+    		// worst case : low从第一个pass到最后一个
+    		// average case : n/2次
     		while(low<high){
     			if(nums[low] + nums[high] > target){
     				high = optimize(nums, high,1);
